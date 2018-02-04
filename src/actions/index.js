@@ -3,7 +3,7 @@
 // allows for async
 import axios from 'axios'
 import { browserHistory } from 'react-router'
-import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_MESSAGE } from './types'
+import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_MESSAGE } from './actionTypes'
 
 const API_URL = 'http://localhost:3090'
 
