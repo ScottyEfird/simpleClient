@@ -1,0 +1,35 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+// Handles user auth on routes. 
+export default function(ComposedComponent) {
+  class Authentication extends Component {
+    static contextTypes = {
+      router: React.PropTypes.object
+    }
+
+    componentWillMount() {
+      if (!this.props.authenticated) {
+        this.context.router.push('/');
+      }
+    }
+
+    componentWillUpdate(nextProps) {
+      if (!nextProps.authenticated) {
+        this.context.router.push('/');
+      }
+    }
+
+    render() {
+      return <ComposedComponent {...this.props} />
+    }
+  }
+
+  function mapStateToProps(state) {
+    console.log(state)
+    return { authenticated: state.authentication.authenticated };
+  }
+
+  return connect(mapStateToProps)(Authentication);
+}
+
