@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 // Handles user auth on routes. 
 export default function(ComposedComponent) {
@@ -10,13 +10,13 @@ export default function(ComposedComponent) {
 
     componentWillMount() {
       if (!this.props.authenticated) {
-        this.context.router.push('/');
+        this.context.router.push('/')
       }
     }
 
     componentWillUpdate(nextProps) {
       if (!nextProps.authenticated) {
-        this.context.router.push('/');
+        this.context.router.push('/')
       }
     }
 
@@ -26,10 +26,8 @@ export default function(ComposedComponent) {
   }
 
   function mapStateToProps(state) {
-    console.log(state)
-    return { authenticated: state.authentication.authenticated };
+    return { authenticated: state.authentication.authenticated }
   }
 
-  return connect(mapStateToProps)(Authentication);
+  return connect(mapStateToProps)(Authentication)
 }
-

@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
+import styled from 'styled-components'
+
+const Message = styled.div`
+  color: gray;
+`
 
 class AuthenticatedPage extends Component {
   componentWillMount() {
@@ -10,8 +15,10 @@ class AuthenticatedPage extends Component {
   render() {
     return (
       <div>
-        This is an authenticated page.
-        {this.props.message}
+        This is an authenticated page with an authenticated message from the server.
+        <Message>
+          {this.props.message}
+        </Message>
       </div>
     )
   }

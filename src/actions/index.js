@@ -13,7 +13,7 @@ export function signinUser({ email, password }) {
         browserHistory.push('/home')
       })
       .catch(() => {
-        console.log('Invaild email/pass')
+        console.log('incorrect email/pass')
       })
   }
 }
